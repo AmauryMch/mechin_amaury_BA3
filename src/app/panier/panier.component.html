@@ -15,10 +15,14 @@
         <tr *ngFor="let article of articlesPanier">
           <td>{{ article["Unique Entry ID"] }}</td>
           <td>{{ article.Name }}</td>
-          <td>{{ article.quantity }}</td>
+          <td>
+            <button (click)="decreaseQuantity(article)">-</button>
+            {{ article.quantity }}
+            <button (click)="increaseQuantity(article)">+</button>
+          </td>
           <td>{{ article.price }}</td>
           <td>{{ article.totalPrice }}</td>
-          <td></td>
+          <td><button (click)="removeFromCart(article)">Supprimer</button></td>
         </tr>
       </tbody>
     </table>

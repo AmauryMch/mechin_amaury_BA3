@@ -19,4 +19,22 @@ export class PanierComponent implements OnInit {
     this.articlesPanier = this.epanierservice.getPanier();
   }
 
+  decreaseQuantity(article: IArticlePanier) {
+    if (article.quantity > 1) {
+      article.quantity--;
+      article.totalPrice = article.quantity * article.price;
+    }
+  }
+
+  increaseQuantity(article: IArticlePanier) {
+    article.quantity++;
+    article.totalPrice = article.quantity * article.price;
+  }
+
+  removeFromCart(article: IArticlePanier) {
+    const index = this.articlesPanier.indexOf(article);
+    if (index !== -1) {
+      this.articlesPanier.splice(index, 1);
+    }
+  }
 }
