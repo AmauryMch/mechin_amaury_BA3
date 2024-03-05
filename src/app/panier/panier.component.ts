@@ -37,4 +37,9 @@ export class PanierComponent implements OnInit {
       this.articlesPanier.splice(index, 1);
     }
   }
+
+  getTotalPrice(): number {
+    return this.articlesPanier.reduce((total, article) => total + (article.totalPrice || 0), 0);
+  }
+
 }
