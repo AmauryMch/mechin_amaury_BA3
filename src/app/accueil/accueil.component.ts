@@ -15,7 +15,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class AccueilComponent {
   articles!: IArticle[];
 
-  quantityForm = new FormControl("");
+  quantityForm = new FormControl("1");
 
   constructor(private ecommerceService: EcommerceService, private epanierservice: EpanierServiceService) { }
 
@@ -43,7 +43,7 @@ export class AccueilComponent {
         this.epanierservice.addToPanier(article, Number(this.quantityForm.value));
         alert("L'article " + article.Name + " a été ajouté au panier en quantité x" + this.quantityForm.value);
       }
-      this.quantityForm.setValue("0");
+      this.quantityForm.setValue("1");
     }
   }
 
