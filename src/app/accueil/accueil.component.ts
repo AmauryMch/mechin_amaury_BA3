@@ -11,7 +11,7 @@ import { IArticle } from '../interfaces/article.interface';
   styleUrl: './accueil.component.css'
 })
 export class AccueilComponent {
-  articles!: IArticle;
+  articles!: IArticle[];
 
   constructor(private ecommerceService: EcommerceService) { }
 
@@ -21,7 +21,8 @@ export class AccueilComponent {
 
   getAllArticles() {
     this.ecommerceService.getAllArticles().subscribe((data: any) => {
-      this.articles = data.results;
+      this.articles = data;
     })
   }
+
 }

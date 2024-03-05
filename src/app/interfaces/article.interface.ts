@@ -4,7 +4,7 @@ export interface IArticle {
     StorageImage: string,
     Variation: string,
     DIY: string,
-    Buy: string,
+    Buy: number,
     Sell: number,
     HHABasePoints: number,
     Color1: string,
