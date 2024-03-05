@@ -8,7 +8,21 @@
         <p class="card-text">Prix: {{ article.Buy }} €</p>
 
         <label for="quantity">Quantité:</label>
-        <input type="number" id="quantity" name="quantity" min="1" />
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          min="1"
+          placeholder="0"
+          [formControl]="quantityForm"
+        />
+
+        <button
+          (click)="addToCart(article)"
+          [disabled]="article.Buy.toString() === 'NFS'"
+        >
+          Ajouter au panier
+        </button>
       </div>
     </div>
   </div>

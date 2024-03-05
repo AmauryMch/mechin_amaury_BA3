@@ -1,5 +1,5 @@
 export interface IArticlePanier {
-    'UniqueEntry ID': string
+    'Unique Entry ID': string
     Name: string;
     quantity: number;
     price: number;
