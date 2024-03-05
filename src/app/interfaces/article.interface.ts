@@ -26,5 +26,5 @@ export interface IArticle {
     Filename: string,
     'Cloth Group ID': number,
     'Internal ID': number,
-    'UniqueEntry ID': string
+    'Unique Entry ID': string
 }

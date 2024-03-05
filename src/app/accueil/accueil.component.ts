@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { EcommerceService } from '../services/EcommerceService.service';
-import { NgFor } from '@angular/common';
+import { EcommerceService } from '../services/ecommerceService.service';
+import { NgFor, NgIf } from '@angular/common';
 import { IArticle } from '../interfaces/article.interface';
+import { IArticlePanier } from '../interfaces/articlePanier.interface';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.css'
 })
