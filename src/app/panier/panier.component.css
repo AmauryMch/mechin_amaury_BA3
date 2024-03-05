@@ -3,6 +3,13 @@
   justify-content: center;
 }
 
+.d-flex-2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .panier-table {
   width: 100%;
   font-size: 1.2em;

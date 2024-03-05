@@ -6,7 +6,7 @@ import { IArticle } from '../interfaces/article.interface';
   providedIn: 'root'
 })
 export class EpanierServiceService {
-  articlePanier: IArticlePanier[] = [];
+  articlesPanier: IArticlePanier[] = [];
 
   constructor() { }
 
@@ -19,11 +19,15 @@ export class EpanierServiceService {
       totalPrice: quantity * article.Buy
     };
 
-    this.articlePanier.push(articleAjoute);
+    this.articlesPanier.push(articleAjoute);
   }
 
   getPanier() {
-    return this.articlePanier;
+    return this.articlesPanier;
+  }
+
+  clearPanier() {
+    this.articlesPanier = [];
   }
 
 }

@@ -33,7 +33,7 @@ export class AccueilComponent {
     if (Number(this.quantityForm.value) <= 0) {
       alert('Vous devez entrer une quantité !');
     } else {
-      const existingArticlePanier = this.epanierservice.articlePanier.findIndex(item => item['Unique Entry ID'] === article['Unique Entry ID']);
+      const existingArticlePanier = this.epanierservice.articlesPanier.findIndex(item => item['Unique Entry ID'] === article['Unique Entry ID']);
       if (existingArticlePanier !== -1) {
         this.epanierservice.getPanier()[existingArticlePanier].quantity += Number(this.quantityForm.value);
         this.epanierservice.getPanier()[existingArticlePanier].totalPrice +=
@@ -48,14 +48,14 @@ export class AccueilComponent {
   }
 
   removeFromPanier(article: IArticle) {
-    const index = this.epanierservice.articlePanier.findIndex(item => item['Unique Entry ID'] === article['Unique Entry ID']);
+    const index = this.epanierservice.articlesPanier.findIndex(item => item['Unique Entry ID'] === article['Unique Entry ID']);
     if (index !== -1) {
-      this.epanierservice.articlePanier.splice(index, 1);
+      this.epanierservice.articlesPanier.splice(index, 1);
     }
   }
 
   isArticleInPanier(article: IArticle): boolean {
-    return this.epanierservice.articlePanier.some(item => item['Unique Entry ID'] === article['Unique Entry ID']);
+    return this.epanierservice.articlesPanier.some(item => item['Unique Entry ID'] === article['Unique Entry ID']);
   }
 
 

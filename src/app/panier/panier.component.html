@@ -22,7 +22,9 @@
           </td>
           <td>{{ article.price }}</td>
           <td>{{ article.totalPrice }}</td>
-          <td><button (click)="removeFromCart(article)">Supprimer</button></td>
+          <td>
+            <button (click)="removeFromPanier(article)">Supprimer</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -33,6 +35,8 @@
   </ng-template>
 </div>
 
-<div class="d-flex" *ngIf="articlesPanier.length > 0">
+<div class="d-flex-2" *ngIf="articlesPanier.length > 0">
   <h3>Prix total du panier: {{ getTotalPrice() }} €</h3>
+  <button (click)="clearPanier()">Vider le panier</button>
+  <button routerLink="/checkout">Payer</button>
 </div>
