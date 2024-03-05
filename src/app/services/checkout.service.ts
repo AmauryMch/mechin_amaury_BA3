@@ -15,8 +15,8 @@ export class CheckoutService {
     purchase: "https://www.eleguen.ovh/api/v1/purchase",
   }
 
-  submitOrder(user: IUser): Observable<any> {
-    const order = { user: user };
+  submitOrder(panier: IArticlePanier[], user: IUser): Observable<any> {
+    const order = { panier: panier, user: user };
     return this.http.post(this.apiRoute.purchase, order);
   }
 

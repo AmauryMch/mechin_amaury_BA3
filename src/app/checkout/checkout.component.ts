@@ -30,7 +30,7 @@ export class CheckoutComponent {
     if (this.userForm.valid) {
       const user: IUser = this.userForm.value;
       console.log(user);
-      this.checkoutService.submitOrder(user).subscribe(
+      this.checkoutService.submitOrder(this.epanierservice.getPanier(), user).subscribe(
         () => {
           console.log("Commande envoyée avec succès.");
         },
