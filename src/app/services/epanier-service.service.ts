@@ -10,7 +10,7 @@ export class EpanierServiceService {
 
   constructor() { }
 
-  addToCart(article: IArticle, quantity: number) {
+  addToPanier(article: IArticle, quantity: number) {
     const articleAjoute: IArticlePanier = {
       'Unique Entry ID': article['Unique Entry ID'],
       Name: article.Name,

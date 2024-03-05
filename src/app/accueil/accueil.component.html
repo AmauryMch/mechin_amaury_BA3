@@ -18,10 +18,16 @@
         />
 
         <button
-          (click)="addToCart(article)"
+          (click)="addToPanier(article)"
           [disabled]="article.Buy.toString() === 'NFS'"
         >
           Ajouter au panier
+        </button>
+        <button
+          *ngIf="isArticleInPanier(article)"
+          (click)="removeFromPanier(article)"
+        >
+          Supprimer du panier
         </button>
       </div>
     </div>

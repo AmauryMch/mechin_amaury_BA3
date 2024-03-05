@@ -29,14 +29,34 @@ export class AccueilComponent {
     })
   }
 
-  addToCart(article: IArticle) {
-    if (Number(this.quantityForm.value) === 0) {
-      alert('Vous devez entrez une quantité');
+  addToPanier(article: IArticle) {
+    if (Number(this.quantityForm.value) <= 0) {
+      alert('Vous devez entrer une quantité !');
     } else {
-      this.epanierservice.addToCart(article, Number(this.quantityForm.value));
-      alert("L'article " + article.Name + " a été ajouté au panier en quantité x" + this.quantityForm.value);
+      const existingArticlePanier = this.epanierservice.articlePanier.findIndex(item => item['Unique Entry ID'] === article['Unique Entry ID']);
+      if (existingArticlePanier !== -1) {
+        this.epanierservice.getPanier()[existingArticlePanier].quantity += Number(this.quantityForm.value);
+        this.epanierservice.getPanier()[existingArticlePanier].totalPrice +=
+          Number(this.quantityForm.value) * this.epanierservice.getPanier()[existingArticlePanier].price;
+        alert("La quantité de l'article " + article.Name + " a été mise à jour dans le panier x" + this.quantityForm.value);
+      } else {
+        this.epanierservice.addToPanier(article, Number(this.quantityForm.value));
+        alert("L'article " + article.Name + " a été ajouté au panier en quantité x" + this.quantityForm.value);
+      }
       this.quantityForm.setValue("0");
     }
   }
+
+  removeFromPanier(article: IArticle) {
+    const index = this.epanierservice.articlePanier.findIndex(item => item['Unique Entry ID'] === article['Unique Entry ID']);
+    if (index !== -1) {
+      this.epanierservice.articlePanier.splice(index, 1);
+    }
+  }
+
+  isArticleInPanier(article: IArticle): boolean {
+    return this.epanierservice.articlePanier.some(item => item['Unique Entry ID'] === article['Unique Entry ID']);
+  }
+
 
 }
