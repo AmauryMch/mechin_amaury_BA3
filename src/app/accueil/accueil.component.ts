@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { EleguenService } from '../eleguen.service';
+import { EleguenService } from '../services/eleguen.service';
 import { NgFor } from '@angular/common';
+import { IArticle } from '../interfaces/article.interface';
 
 @Component({
   selector: 'app-accueil',
@@ -10,8 +11,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './accueil.component.css'
 })
 export class AccueilComponent {
-  articles: any;
-  classes: any;
+  articles!: IArticle;
 
   constructor(private eleguenService: EleguenService) { }
 
