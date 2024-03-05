@@ -6,7 +6,7 @@ import { IArticle } from '../interfaces/article.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class EleguenService {
+export class EcommerceService {
 
   constructor(private http: HttpClient) { }
 

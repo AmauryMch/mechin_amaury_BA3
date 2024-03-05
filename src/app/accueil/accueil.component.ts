@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EleguenService } from '../services/eleguen.service';
+import { EcommerceService } from '../services/EcommerceService.service';
 import { NgFor } from '@angular/common';
 import { IArticle } from '../interfaces/article.interface';
 
@@ -13,14 +13,14 @@ import { IArticle } from '../interfaces/article.interface';
 export class AccueilComponent {
   articles!: IArticle;
 
-  constructor(private eleguenService: EleguenService) { }
+  constructor(private ecommerceService: EcommerceService) { }
 
   ngOnInit(): void {
     this.getAllArticles();
   }
 
   getAllArticles() {
-    this.eleguenService.getAllArticles().subscribe((data: any) => {
+    this.ecommerceService.getAllArticles().subscribe((data: any) => {
       this.articles = data.results;
     })
   }
