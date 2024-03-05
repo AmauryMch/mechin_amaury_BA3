@@ -1,1 +1,30 @@
-<p>panier works!</p>
+<div class="d-flex">
+  <div *ngIf="articlesPanier.length > 0; else emptyPanier">
+    <h2>Contenu du Panier</h2>
+    <table class="table panier-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Quantité</th>
+          <th>Prix unitaire</th>
+          <th>Prix total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let article of articlesPanier">
+          <td>{{ article["Unique Entry ID"] }}</td>
+          <td>{{ article.Name }}</td>
+          <td>{{ article.quantity }}</td>
+          <td>{{ article.price }}</td>
+          <td>{{ article.totalPrice }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #emptyPanier>
+    <h2>Le panier est vide.</h2>
+  </ng-template>
+</div>

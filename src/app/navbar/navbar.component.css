@@ -1,7 +1,9 @@
 nav {
   display: flex;
-  justify-content: center;
   margin-bottom: 20px;
+  background-color: teal;
+  border-radius: 0.625rem;
+  align-items: center;
 }
 
 button {
@@ -20,4 +22,10 @@ button {
 
 button:hover {
   background-color: rgb(1, 103, 103);
+}
+
+.shop-name {
+  margin-left: 1rem;
+  color: white;
+  font-size: 2rem;
 }
